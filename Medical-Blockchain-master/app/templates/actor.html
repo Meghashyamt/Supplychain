@@ -1,0 +1,61 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="p-4 mt-5">
+    <div clas="container">
+
+      <div class="card">
+        <div class="card-header">
+          Your Profile
+        </div>
+        <div class="card-body">
+          <h1 class="card-title" style="text-transform:capitalize; font-weight: bold;">{{ actor.actor_name }}</h1>
+          <h6 class="card-subtitle mb-2 text-muted">ID: {{ actor.id }}</h6>
+          <br/>
+          <div class="card-text">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-header">
+                    Informations
+                  </div>
+                  <div class="card-body">
+                    <p id="email"> <span style="font-weight: bold">Email: </span>{{ actor.email }} </p>
+                    <p><span style="font-weight: bold">Manufacturer: </span>{{ actor.manufacturer }} </p>
+                    <p id="phone"><span style="font-weight: bold">Phone: </span>{{ actor.phone }} </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-header">
+                    Adress
+                  </div>
+                  <div class="card-body">
+                    <p id="street"> <span style="font-weight: bold">Street: </span>{{ adress.street }} </p>
+                    <p id="city"><span style="font-weight: bold">City: </span>{{ adress.city }}</p>
+                    <p id="state"><span style="font-weight: bold">State: </span>{{ adress.state }}</p>
+                    <p id="zip_code"><span style="font-weight: bold">ZIP Code: </span>{{ adress.zip_code }} </p>
+                    <p id="country"><span style="font-weight: bold">Country: </span>{{ adress.country }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% if actor.id == current_user.id %}
+            <button class="btn btn-info" onclick="editActor()">Edit</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function editActor(){
+
+      console.log("Editing")
+    }
+  </script>
+
+{% endblock %}
